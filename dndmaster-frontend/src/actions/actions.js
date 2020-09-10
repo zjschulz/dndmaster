@@ -1,0 +1,80 @@
+export function checkLoginStatus() {
+    return (dispatch) => {
+        return fetch(`http://localhost:3001/logged_in`, {
+            method: 'GET',
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            withCredentials: true
+        })
+    .then(resp => resp.json())
+    .then(data => dispatch({ type: 'CHECK_STATUS', payload: data }))}
+}
+
+export function handleLogout() {
+    return (dispatch) => {
+        return fetch(`http://localhost:3001/logout`, {
+            method: 'DELETE',
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            withCredentials: true
+        })
+        .then(resp => resp.json())
+        .then(data => dispatch({ type: 'LOGOUT', payload: data }))
+        .catch(err => console.log(err));
+    }
+}
+
+export function handleLogin(formdata, history) {
+    return (dispatch) => {
+        return fetch(`http://localhost:3001/sessions`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                email: formdata.email,
+                password: formdata.password
+            }),
+            withCredentials: true
+        })
+        .then(resp => resp.json())
+        .then(data => 
+            {if (data.status === 'created') {
+                dispatch({ type: 'LOGIN', payload: data });
+                history.push('/dashboard')
+            }
+            else {
+                alert("Error: Either email or password incorrect. Please try again.");
+            }})
+        .catch(err => console.log("registration error", err));
+    }
+}
+
+export function register(formdata) {
+    return (dispatch) => {
+        return fetch(`http://localhost:3001/users`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                email: formdata.email,
+                password: formdata.password,
+                password_confirmation: formdata.password_confirmation
+            }),
+            withCredentials: true
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            dispatch({ type: 'REGISTER', payload: data });
+            alert("User created!")
+        })
+        .catch(err => alert("Registration Error: " + err));
+    }
+}

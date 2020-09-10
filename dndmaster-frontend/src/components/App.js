@@ -2,10 +2,20 @@ import React from 'react';
 import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Navbar from './Navbar';
 import Home from './Home';
+import Registration from './Registration';
+import Login from './Login';
+import { connect } from 'react-redux';
+import { checkLoginStatus } from '../actions/actions';
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
+
+  componentDidMount() {
+    this.props.checkLoginStatus()
+  }
+  
+  render () {
+    return (
+      <div className="App">
       <BrowserRouter>
         <Navbar/>
         <Switch>
@@ -14,10 +24,26 @@ function App() {
             path={"/"}
             render={props => (<Home {...props}/>)} 
           />
+          <Route
+            exact
+            path={"/login"}
+            render={props => (<Login {...props}/>)} 
+          />
+          <Route
+            exact
+            path={"/signup"}
+            render={props => (<Registration {...props}/>)} 
+          />
         </Switch>
       </BrowserRouter>
     </div>
-  );
+    )
+  }
+
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {loggedInStatus: state.loggedInStatus, user: state.user}
+}
+
+export default connect(mapStateToProps, { checkLoginStatus })(App)
