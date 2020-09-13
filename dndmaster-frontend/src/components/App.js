@@ -7,7 +7,7 @@ import Login from './Login';
 import { connect } from 'react-redux';
 import { checkLoginStatus } from '../actions/actions';
 
-class App extends Component {
+class App extends React.Component {
 
   componentDidMount() {
     this.props.checkLoginStatus()
