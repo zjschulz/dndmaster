@@ -78,3 +78,31 @@ export function register(formdata) {
         .catch(err => alert("Registration Error: " + err));
     }
 }
+
+export function addCampaign(formData, history) {
+    return (dispatch) => {
+        return fetch(`http://localhost:3001/campaigns`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                name: formData.name,
+                user_id: formData.user_id
+            })
+        })
+        .then(response => response.json())
+        .then(data => 
+            {if (data.status === 'created') {
+                alert(data.campaign.name + " created!");
+                dispatch({ type: 'ADD_CAMPAIGN', payload: data.campaign })
+            }
+            else {
+                alert("Error: Campaign name is invalid. Please review campaigns and try again.");
+            }}
+        )
+        .then(promise => {history.push(`/dashboard`)})
+        .catch(err => alert(err)) 
+    };
+}

@@ -5,7 +5,7 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.string :race
       t.string :character_class
       t.integer :background
-      t.integer: level
+      t.integer :level
       t.integer :armor_class
       t.integer :perception
       t.integer :investigation

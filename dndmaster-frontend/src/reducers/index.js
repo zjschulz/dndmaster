@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-// import teams from './teamReducer';
+import campaigns from './campaignReducer';
 import user from './authReducer';
 
 export default combineReducers({
-//   teams,
+  campaigns,
   user
 });
