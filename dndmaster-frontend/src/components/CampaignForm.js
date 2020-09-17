@@ -29,8 +29,8 @@ class CampaignForm extends Component {
 
     render () {
         return (
-            <div id="campaignform">
-                <h1>New Campaign Form</h1>
+            <div id="campaignform" style={{marginLeft: '20px'}}>
+                <h2>New Campaign Form</h2>
                 <form onSubmit={this.handleSubmit}>
                     <input
                     type="name"

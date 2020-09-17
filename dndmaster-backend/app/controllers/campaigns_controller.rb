@@ -11,7 +11,7 @@ class CampaignController < ApplicationController
 
     def create
         user = User.find_by(id: params[:user_id])
-        campaign = Team.create(name: params[:name], user: user)
+        campaign = Campaign.create(name: params[:name], user: user)
 
         if campaign.id
             render json: {

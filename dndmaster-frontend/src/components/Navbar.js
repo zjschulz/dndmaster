@@ -58,6 +58,11 @@ class Navbar extends React.Component {
           exact
           activeStyle={{background: 'maroon'}}
         >Sign Up</NavLink>
+        <NavLink
+          to="/campaign"
+          exact
+          activeStyle={{background: 'maroon'}}
+        >New Campaign</NavLink>
       </nav>
     )
   }

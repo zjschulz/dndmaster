@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import Registration from './Registration';
 import Login from './Login';
+import CampaignForm from './CampaignForm';
 import { connect } from 'react-redux';
 import { checkLoginStatus } from '../actions/actions';
 
@@ -33,6 +34,11 @@ class App extends React.Component {
             exact
             path={"/signup"}
             render={props => (<Registration {...props}/>)} 
+          />
+          <Route
+            exact
+            path={"/campaign"}
+            render={props => (<CampaignForm {...props}/>)} 
           />
         </Switch>
       </BrowserRouter>
