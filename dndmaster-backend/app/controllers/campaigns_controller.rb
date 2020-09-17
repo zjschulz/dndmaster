@@ -10,6 +10,19 @@ class CampaignController < ApplicationController
     end
 
     def create
+        user = User.find_by(id: params[:user_id])
+        campaign = Team.create(name: params[:name], user: user)
+
+        if campaign.id
+            render json: {
+                status: :created,
+                campaign: campaign
+            }
+        else
+            render json: {
+                status: :error
+            }
+        end
     end
 
 end
