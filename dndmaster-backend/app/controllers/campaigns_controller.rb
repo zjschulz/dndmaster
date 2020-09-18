@@ -1,4 +1,4 @@
-class CampaignController < ApplicationController
+class CampaignsController < ApplicationController
 
     def index
         render :json => Campaign.all
@@ -15,8 +15,7 @@ class CampaignController < ApplicationController
 
         if campaign.id
             render json: {
-                status: :created,
-                campaign: campaign
+                status: :created
             }
         else
             render json: {
