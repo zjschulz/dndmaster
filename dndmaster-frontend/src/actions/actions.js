@@ -79,6 +79,15 @@ export function register(formdata) {
     }
 }
 
+export function fetchCampaign() {
+    return (dispatch) => {
+        return fetch('http://localhost:3001/campaigns')
+        .then(response => response.json())
+        .then(data => dispatch({ type: 'GET_CAMPAIGNS', payload: data }))
+        .catch(err => alert(err))
+    };
+}
+
 export function addCampaign(formData, history) {
     return (dispatch) => {
         return fetch(`http://localhost:3001/campaigns`, {

@@ -11,6 +11,8 @@ class CreateCharacters < ActiveRecord::Migration[6.0]
       t.integer :investigation
       t.integer :insight
       t.integer :spell_save_dc
+      t.integer :campaign_id
+      t.integer :user_id
       t.timestamps
     end
   end
