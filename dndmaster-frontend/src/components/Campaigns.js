@@ -9,7 +9,7 @@ class Campaigns extends React.Component {
         this.props.fetchCampaigns()
     };
 
-    generateTeams = () => {
+    generateCampaigns = () => {
         function compare(a, b) {
             const totalpointsA = a.tp;
             const totalpointsB = b.tp;
@@ -26,6 +26,7 @@ class Campaigns extends React.Component {
         return this.props.campaigns.filter(campaign => campaign.user_id === this.props.user.id).sort(compare).map((campaign, index) => <Campaign
           key = {index}
           name = {campaign.name}
+          id = {campaign.id}
           />)
     };
 
@@ -37,7 +38,7 @@ class Campaigns extends React.Component {
                     <tr>
                         <th>Campaign Name</th>
                     </tr>
-                        {this.generateTeams()}
+                        {this.generateCampaigns()}
                     </tbody>
                 </table>
             </div>
