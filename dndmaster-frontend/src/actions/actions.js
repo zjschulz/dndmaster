@@ -115,3 +115,41 @@ export function addCampaign(formData, history) {
         .catch(err => alert(err)) 
     };
 }
+
+export function fetchCharacters() {
+    return (dispatch) => {
+        return fetch('http://localhost:3001/characters')
+        .then(response => response.json())
+        .then(data => dispatch({ type: 'GET_CHARACTERS', payload: data }))
+        .catch(err => alert(err))
+    };
+}
+
+export function addCharacter(formData, history) {
+    return (dispatch) => {
+        return fetch(`http://localhost:3001/characters`, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                name: formData.name,
+                user_id: formData.user_id,
+                campaign_id: formData.campaign_id
+            })
+        })
+        .then(response => response.json())
+        .then(data => 
+            {if (data.status === 'created') {
+                alert(data.character.name + " created!");
+                dispatch({ type: 'ADD_CHARACTER', payload: data.character })
+            }
+            else {
+                alert("Error: Character info is invalid. Please review characters and try again.");
+            }}
+        )
+        .then(promise => {history.push(`/dashboard`)})
+        .catch(err => alert(err)) 
+    };
+}

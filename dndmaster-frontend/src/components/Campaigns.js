@@ -27,7 +27,7 @@ class Campaigns extends React.Component {
           key = {index}
           name = {campaign.name}
           />)
-        };
+    };
 
     render() {    
         return (
