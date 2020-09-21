@@ -6,6 +6,7 @@ import Registration from './Registration';
 import Login from './Login';
 import CampaignForm from './CampaignForm';
 import CampaignList from './CampaignList';
+import CharacterForm from './CharacterForm';
 import { connect } from 'react-redux';
 import { checkLoginStatus } from '../actions/actions';
 
@@ -38,13 +39,18 @@ class App extends React.Component {
           />
           <Route
             exact
-            path={"/campaign"}
+            path={"/newcampaign"}
             render={props => (<CampaignForm {...props}/>)} 
           />
           <Route
             exact
             path={"/campaignlist"}
             render={props => (<CampaignList {...props}/>)} 
+          />
+          <Route
+            exact
+            path={"/newcharacter"}
+            render={props => (<CharacterForm {...props}/>)} 
           />
         </Switch>
       </BrowserRouter>
