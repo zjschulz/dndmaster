@@ -79,7 +79,7 @@ export function register(formdata) {
     }
 }
 
-export function fetchCampaign() {
+export function fetchCampaigns() {
     return (dispatch) => {
         return fetch('http://localhost:3001/campaigns')
         .then(response => response.json())

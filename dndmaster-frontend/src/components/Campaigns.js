@@ -23,7 +23,7 @@ class Campaigns extends React.Component {
             return comparison * -1;
           };
           
-        return this.props.campaigns.filter(campaign => team.user_id === this.props.user.id).sort(compare).map((team, index) => <Campaign
+        return this.props.campaigns.filter(campaign => campaign.user_id === this.props.user.id).sort(compare).map((campaign, index) => <Campaign
           key = {index}
           name = {campaign.name}
           />)
