@@ -5,7 +5,7 @@ export default class Character extends Component {
     render(){
         return(
             <ul>
-                <li>Hello</li> 
+                <li>{this.props.name}</li> 
             </ul>
         )
     }

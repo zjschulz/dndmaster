@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchCampaigns } from '../actions/actions';
 import Campaign from './Campaign';
 
-class Campaigns extends React.Component {
+class CampaignList extends React.Component {
 
     componentDidMount() {
         this.props.fetchCampaigns()
@@ -50,4 +50,4 @@ const mapStateToProps = state => {
     return {campaigns: state.campaigns, user: state.user.user}
 }
 
-export default connect(mapStateToProps, { fetchCampaigns })(Campaigns)
+export default connect(mapStateToProps, { fetchCampaigns })(CampaignList)

@@ -26,15 +26,13 @@ class Campaign extends Component {
         return this.props.characters.filter(character => character.campaign_id === this.props.campaigns.id).sort(compare).map((character, index) => <Character
           key = {index}
           name = {character.name}
-          id = {character.id}
           />)
     };
 
     render(){
         return(
             <tr>
-                <td>{this.props.name}<p>{this.generateCharacters()}</p></td> 
-
+                <td>{this.props.name}<ul>{this.generateCharacters()}</ul></td> 
             </tr>
         )
     }
@@ -42,7 +40,7 @@ class Campaign extends Component {
 }
 
 const mapStateToProps = state => {
-    return {characters: state.characters ,campaigns: state.campaigns, user: state.user.user}
+    return {characters: state.characters, campaigns: state.campaigns, user: state.user.user}
 }
 
 export default connect(mapStateToProps, { fetchCharacters })(Campaign)
