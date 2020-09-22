@@ -23,7 +23,7 @@ class Campaign extends Component {
             return comparison * -1;
           };
           
-        return this.props.characters.filter(character => character.campaign_id === this.props.campaigns.id).sort(compare).map((character, index) => <Character
+        return this.props.characters.filter(character => character.campaign_id === 1).sort(compare).map((character, index) => <Character
           key = {index}
           name = {character.name}
           />)

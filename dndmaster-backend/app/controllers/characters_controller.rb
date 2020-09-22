@@ -16,7 +16,8 @@ class CharactersController < ApplicationController
 
         if character.id
             render json: {
-                status: :created
+                status: :created,
+                character: Character.all[-1]
             }
         else
             render json: {

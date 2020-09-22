@@ -126,6 +126,7 @@ export function fetchCharacters() {
 }
 
 export function addCharacter(formData, history) {
+    debugger
     return (dispatch) => {
         return fetch(`http://localhost:3001/characters`, {
             method: 'POST',
