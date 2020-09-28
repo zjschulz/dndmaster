@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2020_09_17_142024) do
 
   create_table "characters", force: :cascade do |t|
     t.string "name"
+    t.string "race"
+    t.string "character_class"
+    t.integer "background"
+    t.integer "level"
+    t.integer "armor_class"
+    t.integer "perception"
+    t.integer "investigation"
+    t.integer "insight"
+    t.integer "spell_save_dc"
     t.integer "campaign_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
