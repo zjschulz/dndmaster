@@ -136,6 +136,15 @@ export function addCharacter(formData, history) {
             },
             body: JSON.stringify({
                 name: formData.name,
+                race: formData.race,
+                character_class: formData.character_class,
+                background: formData.background,
+                level: formData.level,
+                armor_class: formData.armor_class,
+                perception: formData.perception,
+                investigation: formData.investigation,
+                insight: formData.insight,
+                spell_save_dc: formData.spell_save_dc,
                 user_id: formData.user_id,
                 campaign_id: formData.campaign_id
             })
