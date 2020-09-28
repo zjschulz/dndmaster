@@ -9,6 +9,15 @@ class CharacterForm extends Component {
 
         this.state = {
             name: "",
+            race: "",
+            character_class: "",
+            background: "",
+            level: "",
+            armor_class: "",
+            perception: "",
+            investigation: "",
+            insight: "",
+            spell_save_dc: "",
             user_id: this.props.user.id,
             campaign_id: 1
         }
@@ -39,7 +48,70 @@ class CharacterForm extends Component {
                     placeholder="Name"
                     value={this.state.name}
                     onChange={this.handleChange}
-                    required></input>         
+                    required></input>
+                    <input
+                    type="race"
+                    name="race"
+                    placeholder="Race"
+                    value={this.state.race}
+                    onChange={this.handleChange}
+                    required></input> 
+                    <input
+                    type="character_class"
+                    name="character_class"
+                    placeholder="Class"
+                    value={this.state.character_class}
+                    onChange={this.handleChange}
+                    required></input> 
+                    <input
+                    type="background"
+                    name="background"
+                    placeholder="Background"
+                    value={this.state.background}
+                    onChange={this.handleChange}
+                    required></input> 
+                    <input
+                    type="level"
+                    name="level"
+                    placeholder="Level"
+                    value={this.state.level}
+                    onChange={this.handleChange}
+                    required></input> 
+                    <input
+                    type="armor_class"
+                    name="armor_class"
+                    placeholder="AC"
+                    value={this.state.armor_class}
+                    onChange={this.handleChange}
+                    required></input> 
+                    <input
+                    type="perception"
+                    name="perception"
+                    placeholder="Passive Perception"
+                    value={this.state.perception}
+                    onChange={this.handleChange}
+                    required></input> 
+                    <input
+                    type="investigation"
+                    name="investigation"
+                    placeholder="Passive Investigation"
+                    value={this.state.investigation}
+                    onChange={this.handleChange}
+                    required></input> 
+                    <input
+                    type="insight"
+                    name="insight"
+                    placeholder="Passive Insight"
+                    value={this.state.insight}
+                    onChange={this.handleChange}
+                    required></input> 
+                    <input
+                    type="spell_save_dc"
+                    name="spell_save_dc"
+                    placeholder="Spell Save DC"
+                    value={this.state.spell_save_dc}
+                    onChange={this.handleChange}
+                    required></input>          
                     <button type="submit">Submit New Character</button>
                 </form>
                 <p></p>
